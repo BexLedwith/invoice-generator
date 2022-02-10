@@ -32,6 +32,10 @@ body {
 .main {
   position: absolute;
   top: 200px;
+  min-width: 475px;
+  text-align: center;
+  width: 80%;
+  left: 10%;
 }
 
 .buttons {
@@ -73,4 +77,11 @@ h6 {
   height: 45px;
   width: 142px;
   padding: 9px 13px;
+}
+
+#sendInvoice {
+  background-color: #3770ed;
+  width: 100%;
+  color: #ffffff;
+  font-weight: 500;
 }
