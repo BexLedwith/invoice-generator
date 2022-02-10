@@ -1,0 +1,23 @@
+*,
+*::before,
+*:after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  background-color: #ffffff;
+}
+
+.container {
+  width: 100%;
+}
+
+.header {
+  background-color: #f5f5f5;
+}
+
+table {
+  width: 100%;
+}
