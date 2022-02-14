@@ -31,7 +31,7 @@ body {
   text-align: center;
 }
 
-.header.dark {
+.dark .header {
   background: #3a69d2;
   color: #ffffff;
 }
@@ -54,7 +54,7 @@ table {
   line-height: 267%;
 }
 
-table .dark {
+.dark table {
   color: #d5d4d8;
 }
 
@@ -133,7 +133,7 @@ button:focus {
   padding: 9px 13px;
 }
 
-.buttons.dark button {
+.dark.buttons button {
   background: #d1d4f4;
 }
 

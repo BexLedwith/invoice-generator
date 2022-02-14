@@ -13,26 +13,26 @@
     <link rel="stylesheet" href="styles.css" />
     <title>Invoice Generator</title>
   </head>
-  <body class="dark">
+  <body id="body">
     <div class="container">
-      <header class="container header dark">
+      <header class="container header" id="header">
         <h1>Invoice creator</h1>
         <h6>Thanks for choosing GoodCorp, LLC!</h6>
       </header>
-      <main class="main dark">
-        <div class="buttons dark">
+      <main class="main">
+        <div class="buttons" id="taskBtns">
           <button>Wash Car: $10</button>
           <button>Mow Lawn: $20</button>
           <button>Pull Weeds: $30</button>
         </div>
-        <div class="table dark" id="tasks">
+        <div class="table" id="tasks">
           <table>
             <tr>
               <th class="left">TASK</th>
               <th class="right">TOTAL</th>
             </tr>
           </table>
-          <table class="notesTotal dark">
+          <table class="notesTotal">
             <tr id="notesTotal">
               <th class="left">NOTES</th>
               <th class="right">TOTAL AMOUNT</th>
@@ -48,7 +48,7 @@
           <label class="switch">
             <input type="checkbox" id="toggle" />
             <span class="slider round"></span>
-            <p class="dark">Change theme</p>
+            <p id="themeText">Change theme</p>
           </label>
         </div>
       </main>
