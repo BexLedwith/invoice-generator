@@ -10,6 +10,10 @@ body {
   font-family: "Inter", sans-serif;
 }
 
+.dark {
+  background: #1f2937;
+}
+
 /* layout */
 
 .container {
@@ -18,12 +22,18 @@ body {
 
 .header {
   background-color: #f5f5f5;
+  color: #2b283a;
   position: absolute;
   height: 190px;
   width: 100%;
   left: 0px;
   top: 0px;
   text-align: center;
+}
+
+.header.dark {
+  background: #3a69d2;
+  color: #ffffff;
 }
 
 .main {
@@ -44,6 +54,10 @@ table {
   line-height: 267%;
 }
 
+table .dark {
+  color: #d5d4d8;
+}
+
 .notesTotal {
   border-top: 1px solid #c3c6db;
   padding-top: 2em;
@@ -62,7 +76,6 @@ h2,
 h6 {
   margin-top: 0;
   margin-bottom: 0;
-  color: #2b283a;
 }
 
 h2 {
@@ -85,6 +98,10 @@ h6 {
   font-size: 2.25em;
   font-weight: 600;
   line-height: 89%;
+}
+
+.dark #numberTotal {
+  color: #f5f5f5;
 }
 
 /* button styles */
@@ -114,6 +131,10 @@ button:focus {
   height: 45px;
   width: 142px;
   padding: 9px 13px;
+}
+
+.buttons.dark button {
+  background: #d1d4f4;
 }
 
 #sendInvoice {
@@ -194,4 +215,12 @@ input:checked + .slider:before {
 
 #theme-toggle {
   text-align: right;
+}
+
+#theme-toggle p {
+  padding-top: 0.25em;
+}
+
+.dark #theme-toggle {
+  color: #fff;
 }
