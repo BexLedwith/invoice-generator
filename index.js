@@ -5,6 +5,10 @@ const lawn = document.getElementById("lawn");
 const weeds = document.getElementById("weeds");
 const taskTable = document.getElementById("task-table");
 
+// const removeCar = document.getElementById("washCarBtn");
+// const removeLawn = document.getElementById("mowLawnBtn");
+// const removeWeeds = document.getElementById("pullWeedsBtn");
+
 const servicesArr = [];
 
 // toggle dark mode
@@ -25,8 +29,10 @@ const updateTable = (service) => {
   const serviceObj = service;
   const task = serviceObj.task;
   const price = serviceObj.price;
+  const id = serviceObj.id;
   const node = document.createElement("tr");
   node.classList.add("taskRow");
+  node.setAttribute("id", `${id}`);
   const child = `
         <td class="left">
             <span class="taskSpan">${task}</span> <span class="remove-btn">"Remove"</span>
@@ -54,6 +60,7 @@ car.addEventListener("click", function () {
   };
   addServices(washCar);
   checkNotes();
+  car.disabled = true;
 });
 lawn.addEventListener("click", function () {
   const mowLawn = {
@@ -63,6 +70,7 @@ lawn.addEventListener("click", function () {
   };
   addServices(mowLawn);
   checkNotes();
+  lawn.disabled = true;
 });
 weeds.addEventListener("click", function () {
   const pullWeeds = {
@@ -72,4 +80,12 @@ weeds.addEventListener("click", function () {
   };
   addServices(pullWeeds);
   checkNotes();
+  weeds.disabled = true;
 });
+
+// remove buttons
+
+// const removeCarBtn = removeCar.addEventListener("click", function () {
+//   //   addServices = addServices.filter((obj) => !obj.id === "washCar");
+//   car.disabled = false;
+// });

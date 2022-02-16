@@ -231,18 +231,21 @@ input:checked + .slider:before {
 
 .taskSpan {
   font-weight: 700;
-  font-size: 20px;
+  font-size: 1.25em;
   color: #4a4e74;
 }
 
-.removeBtn,
+.remove-bn,
 .priceSpan {
   color: #918e9b;
 }
 
-.removeBtn {
-  font-size: 0.5em;
+.remove-btn {
+  font-size: 0.5rem;
   line-height: 250%;
+  display: inline-block;
+  padding-left: 15px;
+  cursor: pointer;
 }
 
 .priceSpan {
