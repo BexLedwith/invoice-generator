@@ -5,11 +5,7 @@ const lawn = document.getElementById("lawn");
 const weeds = document.getElementById("weeds");
 const taskTable = document.getElementById("task-table");
 
-// const removeCar = document.getElementById("washCarBtn");
-// const removeLawn = document.getElementById("mowLawnBtn");
-// const removeWeeds = document.getElementById("pullWeedsBtn");
-
-const servicesArr = [];
+let servicesArr = [];
 
 // toggle dark mode
 themeToggle.addEventListener("click", function () {
@@ -35,7 +31,7 @@ const updateTable = (service) => {
   node.setAttribute("id", `${id}`);
   const child = `
         <td class="left">
-            <span class="taskSpan">${task}</span> <span class="remove-btn">"Remove"</span>
+            <span class="taskSpan">${task}</span> <span class="remove-btn" id="remove-${id}">"Remove"</span>
         </td>
         <td class="right">
             <span class="priceSpan">${price}</span>
@@ -61,6 +57,12 @@ car.addEventListener("click", function () {
   addServices(washCar);
   checkNotes();
   car.disabled = true;
+  const removeCar = document.getElementById("remove-washCar");
+  removeCar.addEventListener("click", function () {
+    servicesArr = servicesArr.filter((obj) => !obj.id === "washCar");
+    document.getElementById("washCar").outerHTML = "";
+    car.disabled = false;
+  });
 });
 lawn.addEventListener("click", function () {
   const mowLawn = {
@@ -71,6 +73,12 @@ lawn.addEventListener("click", function () {
   addServices(mowLawn);
   checkNotes();
   lawn.disabled = true;
+  const removeLawn = document.getElementById("remove-mowLawn");
+  removeLawn.addEventListener("click", function () {
+    servicesArr = servicesArr.filter((obj) => !obj.id === "mowLawn");
+    document.getElementById("mowLawn").outerHTML = "";
+    lawn.disabled = false;
+  });
 });
 weeds.addEventListener("click", function () {
   const pullWeeds = {
@@ -81,11 +89,10 @@ weeds.addEventListener("click", function () {
   addServices(pullWeeds);
   checkNotes();
   weeds.disabled = true;
+  const removeWeeds = document.getElementById("remove-pullWeeds");
+  removeWeeds.addEventListener("click", function () {
+    servicesArr = servicesArr.filter((obj) => !obj.id === "pullWeeds");
+    document.getElementById("pullWeeds").outerHTML = "";
+    weeds.disabled = false;
+  });
 });
-
-// remove buttons
-
-// const removeCarBtn = removeCar.addEventListener("click", function () {
-//   //   addServices = addServices.filter((obj) => !obj.id === "washCar");
-//   car.disabled = false;
-// });
