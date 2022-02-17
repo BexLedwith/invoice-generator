@@ -119,29 +119,22 @@ weeds.addEventListener("click", function () {
   });
 });
 
-// send invoice btn
+// send invoice
+
 sendInvoice.addEventListener("click", function () {
   servicesArr = [];
-  document.getElementById("tasks").innerHTML = `
-    <table id="task-table">
-    <tr>
-        <th class="left">TASK</th>
-        <th class="right">TOTAL</th>
-    </tr>
-    </table>
-    <table class="notesTotal">
-    <tr id="notesTotal">
-        <th class="left">NOTES</th>
-        <th class="right">TOTAL AMOUNT</th>
-    </tr>
-    <tr>
-        <td id="notesText"></td>
-        <td class="right" id="numberTotal">$0</td>
-    </tr>
-    </table>
-  `;
+  if (document.getElementById("washCar")) {
+    document.getElementById("washCar").outerHTML = "";
+  }
+  if (document.getElementById("mowLawn")) {
+    document.getElementById("mowLawn").outerHTML = "";
+  }
+  if (document.getElementById("pullWeeds")) {
+    document.getElementById("pullWeeds").outerHTML = "";
+  }
   totalSum = 0;
+  updateTotal();
   car.disabled = false;
-  weeds.disabled = false;
   lawn.disabled = false;
+  weeds.disabled = false;
 });
