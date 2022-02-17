@@ -58,7 +58,7 @@ const updateTotal = () => {
 car.addEventListener("click", function () {
   const washCar = {
     task: "Wash Car",
-    price: "10",
+    price: 10,
     id: "washCar",
   };
   addServices(washCar);
@@ -78,7 +78,7 @@ car.addEventListener("click", function () {
 lawn.addEventListener("click", function () {
   const mowLawn = {
     task: "Mow Lawn",
-    price: "20",
+    price: 20,
     id: "mowLawn",
   };
   addServices(mowLawn);
@@ -98,7 +98,7 @@ lawn.addEventListener("click", function () {
 weeds.addEventListener("click", function () {
   const pullWeeds = {
     task: "Pull Weeds",
-    price: "30",
+    price: 30,
     id: "pullWeeds",
   };
   addServices(pullWeeds);
