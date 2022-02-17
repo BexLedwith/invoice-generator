@@ -37,7 +37,7 @@ const updateTable = (service) => {
             <span class="taskSpan">${task}</span> <span class="remove-btn" id="remove-${id}">"Remove"</span>
         </td>
         <td class="right">
-            <span class="priceSpan">${price}</span>
+            <span class="dollar">$</span><span class="priceSpan">${price}</span>
         </td>
       `;
   node.innerHTML = child;
@@ -58,12 +58,11 @@ const updateTotal = () => {
 car.addEventListener("click", function () {
   const washCar = {
     task: "Wash Car",
-    price: "$10",
+    price: "10",
     id: "washCar",
   };
-  const numPrice = 10;
   addServices(washCar);
-  totalSum += numPrice;
+  totalSum += washCar.price;
   updateTotal();
   checkNotes();
   car.disabled = true;
@@ -72,19 +71,18 @@ car.addEventListener("click", function () {
     servicesArr = servicesArr.filter((obj) => !obj.id === "washCar");
     document.getElementById("washCar").outerHTML = "";
     car.disabled = false;
-    totalSum -= numPrice;
+    totalSum -= washCar.price;
     updateTotal();
   });
 });
 lawn.addEventListener("click", function () {
   const mowLawn = {
     task: "Mow Lawn",
-    price: "$20",
+    price: "20",
     id: "mowLawn",
   };
-  const numPrice = 20;
   addServices(mowLawn);
-  totalSum += numPrice;
+  totalSum += mowLawn.price;
   updateTotal();
   checkNotes();
   lawn.disabled = true;
@@ -92,7 +90,7 @@ lawn.addEventListener("click", function () {
   removeLawn.addEventListener("click", function () {
     servicesArr = servicesArr.filter((obj) => !obj.id === "mowLawn");
     document.getElementById("mowLawn").outerHTML = "";
-    totalSum -= numPrice;
+    totalSum -= mowLawn.price;
     updateTotal();
     lawn.disabled = false;
   });
@@ -100,12 +98,11 @@ lawn.addEventListener("click", function () {
 weeds.addEventListener("click", function () {
   const pullWeeds = {
     task: "Pull Weeds",
-    price: "$30",
+    price: "30",
     id: "pullWeeds",
   };
-  const numPrice = 30;
   addServices(pullWeeds);
-  totalSum += numPrice;
+  totalSum += pullWeeds.price;
   updateTotal();
   checkNotes();
   weeds.disabled = true;
@@ -113,7 +110,7 @@ weeds.addEventListener("click", function () {
   removeWeeds.addEventListener("click", function () {
     servicesArr = servicesArr.filter((obj) => !obj.id === "pullWeeds");
     document.getElementById("pullWeeds").outerHTML = "";
-    totalSum -= 30;
+    totalSum -= pullWeeds.price;
     updateTotal();
     weeds.disabled = false;
   });
@@ -132,6 +129,7 @@ sendInvoice.addEventListener("click", function () {
   if (document.getElementById("pullWeeds")) {
     document.getElementById("pullWeeds").outerHTML = "";
   }
+  document.getElementById("notesText").innerText = "";
   totalSum = 0;
   updateTotal();
   car.disabled = false;

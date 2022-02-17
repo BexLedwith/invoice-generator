@@ -233,14 +233,20 @@ input:checked + .slider:before {
 /* .taskRow {
 } */
 
-.taskSpan {
+.taskSpan,
+.priceSpan {
   font-weight: 700;
   font-size: 1.25em;
   color: #4a4e74;
 }
 
-.remove-bn,
-.priceSpan {
+.dark .taskSpan,
+.dark .priceSpan {
+  color: #f5f5f5;
+}
+
+.remove-btn,
+.dollar {
   color: #918e9b;
 }
 
@@ -252,8 +258,9 @@ input:checked + .slider:before {
   cursor: pointer;
 }
 
-.priceSpan {
-  font-weight: 300;
+.priceSpan,
+.dollar {
+  font-weight: bold;
   font-size: 24px;
   line-height: 83%;
 }
