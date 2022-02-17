@@ -4,8 +4,11 @@ const car = document.getElementById("car");
 const lawn = document.getElementById("lawn");
 const weeds = document.getElementById("weeds");
 const taskTable = document.getElementById("task-table");
+const totalDisplay = document.getElementById("numberTotal");
+const sendInvoice = document.getElementById("sendInvoice");
 
 let servicesArr = [];
+let totalSum = 0;
 
 // toggle dark mode
 themeToggle.addEventListener("click", function () {
@@ -48,13 +51,20 @@ const checkNotes = function () {
   }
 };
 
+const updateTotal = () => {
+  totalDisplay.innerHTML = `$${totalSum}`;
+};
+
 car.addEventListener("click", function () {
   const washCar = {
     task: "Wash Car",
     price: "$10",
     id: "washCar",
   };
+  const numPrice = 10;
   addServices(washCar);
+  totalSum += numPrice;
+  updateTotal();
   checkNotes();
   car.disabled = true;
   const removeCar = document.getElementById("remove-washCar");
@@ -62,6 +72,8 @@ car.addEventListener("click", function () {
     servicesArr = servicesArr.filter((obj) => !obj.id === "washCar");
     document.getElementById("washCar").outerHTML = "";
     car.disabled = false;
+    totalSum -= numPrice;
+    updateTotal();
   });
 });
 lawn.addEventListener("click", function () {
@@ -70,13 +82,18 @@ lawn.addEventListener("click", function () {
     price: "$20",
     id: "mowLawn",
   };
+  const numPrice = 20;
   addServices(mowLawn);
+  totalSum += numPrice;
+  updateTotal();
   checkNotes();
   lawn.disabled = true;
   const removeLawn = document.getElementById("remove-mowLawn");
   removeLawn.addEventListener("click", function () {
     servicesArr = servicesArr.filter((obj) => !obj.id === "mowLawn");
     document.getElementById("mowLawn").outerHTML = "";
+    totalSum -= numPrice;
+    updateTotal();
     lawn.disabled = false;
   });
 });
@@ -86,13 +103,29 @@ weeds.addEventListener("click", function () {
     price: "$30",
     id: "pullWeeds",
   };
+  const numPrice = 30;
   addServices(pullWeeds);
+  totalSum += numPrice;
+  updateTotal();
   checkNotes();
   weeds.disabled = true;
   const removeWeeds = document.getElementById("remove-pullWeeds");
   removeWeeds.addEventListener("click", function () {
     servicesArr = servicesArr.filter((obj) => !obj.id === "pullWeeds");
     document.getElementById("pullWeeds").outerHTML = "";
+    totalSum -= 30;
+    updateTotal();
     weeds.disabled = false;
   });
+});
+
+// send invoice btn
+sendInvoice.addEventListener("click", function () {
+  servicesArr = [];
+  taskTable.innerHTML = `
+    <tr>
+        <th class="left">TASK</th>
+        <th class="right">TOTAL</th>
+    </tr>
+  `;
 });
