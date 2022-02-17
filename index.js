@@ -122,10 +122,26 @@ weeds.addEventListener("click", function () {
 // send invoice btn
 sendInvoice.addEventListener("click", function () {
   servicesArr = [];
-  taskTable.innerHTML = `
+  document.getElementById("tasks").innerHTML = `
+    <table id="task-table">
     <tr>
         <th class="left">TASK</th>
         <th class="right">TOTAL</th>
     </tr>
+    </table>
+    <table class="notesTotal">
+    <tr id="notesTotal">
+        <th class="left">NOTES</th>
+        <th class="right">TOTAL AMOUNT</th>
+    </tr>
+    <tr>
+        <td id="notesText"></td>
+        <td class="right" id="numberTotal">$0</td>
+    </tr>
+    </table>
   `;
+  totalSum = 0;
+  car.disabled = false;
+  weeds.disabled = false;
+  lawn.disabled = false;
 });
